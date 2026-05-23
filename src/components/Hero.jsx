@@ -1,6 +1,5 @@
 // src/components/Hero.jsx
 
-import React from "react";
 import my from "../images/my2.PNG";
 
 function Hero() {
@@ -15,35 +14,33 @@ function Hero() {
         />
 
         {/* Name Heading */}
-        <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-2 tracking-tight drop-shadow-lg">
+        <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight drop-shadow-lg">
           Hi, I’m{" "}
-          <span className="text-gradient-to-r from-[#8b5cf6] to-[#06b6d4]">
+          <span className="bg-linear-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
             Osanda Abeysinghe
           </span>
         </h1>
         {/* Subtitle */}
-        <h2 className="text-lg md:text-2xl text-slate-300 font-medium mb-6">
-          Software Engineering Undergraduate
-        </h2>
+        <p className="mb-4 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-base md:text-lg font-medium text-slate-200 backdrop-blur-sm">
+          Software Engineer / AI Engineer / Web & Mobile Developer
+        </p>
 
         {/* Description Paragraphs */}
-        <p className="text-base md:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto mb-2">
-          Passionate about solving real-world problems through innovative
-          technology. My interests span software development, web/mobile apps,
-          database design, IoT, data science, and QA.
-        </p>
-        <p className="text-base md:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto mb-6">
-          Hands-on experience in front-end, Java-based mobile apps, IoT, and
-          UI/UX. I focus on building intuitive, user-friendly, and scalable
-          digital solutions. I love exploring new coding techniques, staying
-          updated, and pushing creative boundaries.
-        </p>
+        <div className="max-w-4xl mx-auto space-y-4 text-base md:text-lg text-slate-300 leading-relaxed mb-8">
+          <p>
+            with a strong passion for technology, innovation, and continuous
+            learning. I possess hands-on experience in software engineering, web
+            and mobile application development, AI engineering, database design,
+            IoT systems, data science, and quality assurance.With strong
+            analytical thinking and problem-solving abilities,
+          </p>
+        </div>
 
         {/* Call to Action Buttons */}
         <div className="flex flex-col md:flex-row gap-4 mt-2">
           <a
             href="#projects"
-            className="inline-block bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4] text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:scale-105 transition-all duration-300 text-lg focus:outline-none focus:ring-4 focus:ring-indigo-500"
+            className="inline-block bg-linear-to-r from-[#8b5cf6] to-[#06b6d4] text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:scale-105 transition-all duration-300 text-lg focus:outline-none focus:ring-4 focus:ring-indigo-500"
           >
             View My Projects
           </a>
