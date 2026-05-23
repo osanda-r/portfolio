@@ -1,49 +1,98 @@
 // src/components/Skills.jsx
-import React from "react";
-import {
-  FaJava,
-  FaPython,
-  FaReact,
-  FaVuejs,
-  FaPhp,
-  FaHtml5,
-  FaCss3Alt,
-  FaJs,
-  FaDatabase,
-  FaGithub,
-} from "react-icons/fa";
-import { SiNextdotjs, SiTailwindcss, SiC } from "react-icons/si";
+
+function BadgeIcon({ label, className = "" }) {
+  return (
+    <span
+      className={`inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-xs font-extrabold uppercase tracking-tight ${className}`}
+      aria-hidden="true"
+    >
+      {label}
+    </span>
+  );
+}
+
+function JavaIcon(props) {
+  return <BadgeIcon label="J" className="text-[#f89820]" {...props} />;
+}
+
+function PythonIcon(props) {
+  return <BadgeIcon label="Py" className="text-[#3776ab]" {...props} />;
+}
+
+function CIcon(props) {
+  return <BadgeIcon label="C" className="text-[#00599c]" {...props} />;
+}
+
+function ReactIcon(props) {
+  return <BadgeIcon label="R" className="text-[#61dafb]" {...props} />;
+}
+
+function VueIcon(props) {
+  return <BadgeIcon label="V" className="text-[#42b883]" {...props} />;
+}
+
+function NextIcon(props) {
+  return <BadgeIcon label="N" className="text-slate-200" {...props} />;
+}
+
+function JsIcon(props) {
+  return <BadgeIcon label="JS" className="text-[#f7df1e]" {...props} />;
+}
+
+function TailwindIcon(props) {
+  return <BadgeIcon label="TW" className="text-[#38bdf8]" {...props} />;
+}
+
+function HtmlIcon(props) {
+  return <BadgeIcon label="H" className="text-[#e34f26]" {...props} />;
+}
+
+function CssIcon(props) {
+  return <BadgeIcon label="C" className="text-[#1572b6]" {...props} />;
+}
+
+function PhpIcon(props) {
+  return <BadgeIcon label="PHP" className="text-[#777bb4]" {...props} />;
+}
+
+function DatabaseIcon(props) {
+  return <BadgeIcon label="DB" className="text-[#00758f]" {...props} />;
+}
+
+function GithubIcon(props) {
+  return <BadgeIcon label="GH" className="text-slate-200" {...props} />;
+}
 
 const skillGroups = [
   {
     title: "Programming Languages",
     skills: [
-      { name: "Java", icon: <FaJava className="text-[#f89820]" /> },
-      { name: "Python", icon: <FaPython className="text-[#3776ab]" /> },
-      { name: "C", icon: <SiC className="text-[#00599c]" /> },
+      { name: "Java", icon: <JavaIcon /> },
+      { name: "Python", icon: <PythonIcon /> },
+      { name: "C", icon: <CIcon /> },
     ],
   },
   {
     title: "Web Development",
     skills: [
-      { name: "React.js", icon: <FaReact className="text-[#61dafb]" /> },
-      { name: "Vue.js", icon: <FaVuejs className="text-[#42b883]" /> },
-      { name: "Next.js", icon: <SiNextdotjs className="text-slate-200" /> },
-      { name: "JavaScript", icon: <FaJs className="text-[#f7df1e]" /> },
+      { name: "React.js", icon: <ReactIcon /> },
+      { name: "Vue.js", icon: <VueIcon /> },
+      { name: "Next.js", icon: <NextIcon /> },
+      { name: "JavaScript", icon: <JsIcon /> },
       {
         name: "Tailwind CSS",
-        icon: <SiTailwindcss className="text-[#38bdf8]" />,
+        icon: <TailwindIcon />,
       },
-      { name: "HTML", icon: <FaHtml5 className="text-[#e34f26]" /> },
-      { name: "CSS", icon: <FaCss3Alt className="text-[#1572b6]" /> },
-      { name: "PHP", icon: <FaPhp className="text-[#777bb4]" /> },
+      { name: "HTML", icon: <HtmlIcon /> },
+      { name: "CSS", icon: <CssIcon /> },
+      { name: "PHP", icon: <PhpIcon /> },
     ],
   },
   {
     title: "Database",
     skills: [
-      { name: "MySQL", icon: <FaDatabase className="text-[#00758f]" /> },
-      { name: "MongoDB", icon: <FaDatabase className="text-green-600" /> },
+      { name: "MySQL", icon: <DatabaseIcon /> },
+      { name: "MongoDB", icon: <DatabaseIcon className="text-green-600" /> },
       {
         name: "Firebase",
         icon: <span className="text-[#ffca28] text-2xl font-bold">F</span>,
@@ -66,7 +115,7 @@ const skillGroups = [
         name: "GIT",
         icon: <span className="text-orange-500 text-2xl font-bold">G</span>,
       },
-      { name: "GitHub", icon: <FaGithub className="text-slate-200" /> },
+      { name: "GitHub", icon: <GithubIcon /> },
     ],
   },
   {
