@@ -135,20 +135,18 @@ function Navbar() {
           ))}
         </div>
 
-        {/* Mobile Navigation */}
-        <div className="md:hidden flex items-center z-10000">
-          <button
-            className="bg-[#0b1226]/80 border border-indigo-800 px-4 py-2 rounded-xl hover:bg-[#0b1226]/60 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-600"
-            onClick={() => setShowMenu(!showMenu)}
-            aria-label="Toggle menu"
-          >
-            {showMenu ? (
-              <CloseIcon className="text-indigo-300" width={32} height={32} />
-            ) : (
+        {!showMenu && (
+          <div className="md:hidden flex items-center z-10000">
+            <button
+              className="bg-[#0b1226]/80 border border-indigo-800 px-4 py-2 rounded-xl hover:bg-[#0b1226]/60 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-600"
+              onClick={() => setShowMenu(true)}
+              aria-label="Open navigation menu"
+              aria-expanded={showMenu}
+            >
               <MenuIcon className="text-indigo-300" width={32} height={32} />
-            )}
-          </button>
-        </div>
+            </button>
+          </div>
+        )}
 
         {/* Mobile Dropdown Menu */}
         {showMenu && (
