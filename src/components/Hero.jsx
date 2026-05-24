@@ -10,7 +10,7 @@ function Hero() {
         <img
           src={my}
           alt="Your Photo"
-          className="mx-auto mb-6 w-56 h-56 md:w-72 md:h-72 rounded-full shadow-2xl border-2 border-[#111827]/40 object-cover hover:scale-105 transition-transform duration-300 floaty"
+          className="mx-auto mt-8 md:mt-12 mb-6 w-56 h-56 md:w-72 md:h-72 rounded-full shadow-2xl border-2 border-[#111827]/40 object-cover hover:scale-105 transition-transform duration-300 floaty"
         />
 
         {/* Name Heading */}
