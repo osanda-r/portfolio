@@ -143,7 +143,7 @@ function Navbar() {
               aria-label="Open navigation menu"
               aria-expanded={showMenu}
             >
-              <MenuIcon className="text-indigo-300" width={32} height={32} />
+              <MenuIcon className="text-indigo-300" width={28} height={28} />
             </button>
           </div>
         )}
