@@ -143,7 +143,7 @@ function Navbar() {
               aria-label="Open navigation menu"
               aria-expanded={showMenu}
             >
-              <MenuIcon className="text-indigo-300" width={28} height={28} />
+              <MenuIcon className="text-indigo-300" width={26} height={26} />
             </button>
           </div>
         )}
@@ -162,7 +162,7 @@ function Navbar() {
         >
           <div className="flex justify-end p-4">
             <button onClick={() => setShowMenu(false)} aria-label="Close menu">
-              <CloseIcon className="text-indigo-300" width={28} height={28} />
+              <CloseIcon className="text-indigo-300" width={26} height={26} />
             </button>
           </div>
           <nav className="flex flex-col items-center gap-4 mt-8 text-lg font-medium">
