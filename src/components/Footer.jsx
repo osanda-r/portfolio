@@ -1,5 +1,5 @@
 // src/components/Footer.jsx
-import React from "react";
+// React import not required with the new JSX transform
 
 function Footer() {
   return (

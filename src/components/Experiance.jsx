@@ -50,7 +50,7 @@ function Experience() {
                     key={`${item.company}-${item.role}`}
                     className="relative rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 backdrop-blur-md md:p-7"
                   >
-                    <div className="absolute -left-[1.15rem] top-7 hidden h-7 w-7 rounded-full border border-cyan-400/40 bg-slate-950 ring-4 ring-slate-950 md:block" />
+                    <div className="absolute left-[-1.15rem] top-7 hidden h-7 w-7 rounded-full border border-cyan-400/40 bg-slate-950 ring-4 ring-slate-950 md:block" />
 
                     <div className="flex flex-wrap items-center gap-3">
                       <span className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-cyan-200">

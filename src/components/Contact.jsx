@@ -1,5 +1,5 @@
 // src/components/Contact.jsx
-import React from "react";
+// React import not required with the new JSX transform
 
 function IconShell({ children, className = "", width = 24, height = 24 }) {
   return (
