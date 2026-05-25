@@ -94,7 +94,7 @@ function Hero() {
             learning. I possess hands-on experience in software engineering, web
             and mobile application development, AI engineering, database design,
             IoT systems, data science, and quality assurance.With strong
-            analytical thinking and problem-solving abilities,
+            analytical thinking and problem-solving abilities.
           </p>
         </div>
 
@@ -102,14 +102,14 @@ function Hero() {
         <div className="flex flex-col md:flex-row gap-4 mt-2">
           <a
             href="#projects"
-            className="inline-block bg-linear-to-r from-[#06b6d4] to-[#06d42c] text-black font-semibold px-8 py-3 rounded-full shadow-lg hover:scale-105 transition-all duration-300 text-lg focus:outline-none focus:ring-4 focus:ring-indigo-500"
+            className="inline-block bg-transparent border border-[#2b3e42] text-slate-200 font-semibold px-8 py-3 rounded-full shadow hover:scale-105 transition-all duration-300 text-lg focus:outline-none focus:ring-4 focus:ring-indigo-200"
           >
             View My Projects
           </a>
           <a
             href="/resume.pdf"
             download
-            className="inline-block bg-transparent border border-[#2b2f42] text-slate-200 font-semibold px-8 py-3 rounded-full shadow hover:scale-105 transition-all duration-300 text-lg focus:outline-none focus:ring-4 focus:ring-indigo-200"
+            className="inline-block bg-transparent border border-[#2b3e42] text-slate-200 font-semibold px-8 py-3 rounded-full shadow hover:scale-105 transition-all duration-300 text-lg focus:outline-none focus:ring-4 focus:ring-indigo-200"
           >
             Download Resume
           </a>
