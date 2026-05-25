@@ -49,34 +49,39 @@ function Navbar() {
   const [active, setActive] = useState("");
 
   React.useEffect(() => {
-    const handleScroll = () => {
+    const sections = ["skills", "projects", "contact"];
+
+    const updateActiveSection = () => {
       setScrolled(window.scrollY > 10);
-      // Highlight active section
-      const sections = ["skills", "projects", "contact"];
-      let found = false;
-      for (let sec of sections) {
+
+      const marker = window.scrollY + window.innerHeight * 0.35;
+      let current = "";
+
+      for (const sec of sections) {
         const el = document.getElementById(sec);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          const visibleHeight =
-            Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
-          if (visibleHeight > 0.3 * rect.height) {
-            setActive(sec);
-            found = true;
-            break;
-          }
+        if (el && el.offsetTop <= marker) {
+          current = sec;
         }
       }
-      if (!found) setActive("");
+
+      setActive(current);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
   }, []);
 
   // Smooth scroll
   const handleNavClick = (e, id) => {
     e.preventDefault();
     setShowMenu(false);
+    setActive(id);
     const el = document.getElementById(id);
     if (el) {
       window.scrollTo({
@@ -114,17 +119,17 @@ function Navbar() {
               href={`#${item.id}`}
               onClick={(e) => handleNavClick(e, item.id)}
               className={`px-3 py-1 rounded-lg relative transition-colors duration-200
-                hover:bg-indigo-900/60 hover:text-indigo-300
+                hover:text-cyan-300
                 ${
                   active === item.id
-                    ? "text-indigo-300 font-semibold"
+                    ? "text-cyan-300 font-semibold"
                     : "text-slate-200"
                 }`}
             >
               {item.label}
               <span
                 className={
-                  "absolute left-1/2 -translate-x-1/2 -bottom-0.5 h-0.5 w-8 rounded-full bg-linear-to-r from-indigo-500 to-cyan-400 transition-all duration-300 " +
+                  "absolute left-1/2 -translate-x-1/2 -bottom-0.5 h-0.5 w-8 rounded-full bg-linear-to-r from-[#06b6d4] to-[#06d42c] transition-all duration-300 " +
                   (active === item.id
                     ? "opacity-100 scale-100"
                     : "opacity-0 scale-0")
@@ -138,12 +143,12 @@ function Navbar() {
         {!showMenu && (
           <div className="md:hidden flex items-center z-10000">
             <button
-              className="bg-[#0b1226]/80 border border-indigo-800 px-4 py-2 rounded-xl hover:bg-[#0b1226]/60 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-600"
+              className="bg-[#0b1226]/80 border border-cyan-800 px-4 py-2 rounded-xl hover:bg-[#0b1226]/60 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-600"
               onClick={() => setShowMenu(true)}
               aria-label="Open navigation menu"
               aria-expanded={showMenu}
             >
-              <MenuIcon className="text-indigo-300" width={26} height={26} />
+              <MenuIcon className="text-cyan-300" width={26} height={26} />
             </button>
           </div>
         )}
@@ -162,7 +167,7 @@ function Navbar() {
         >
           <div className="flex justify-end p-4">
             <button onClick={() => setShowMenu(false)} aria-label="Close menu">
-              <CloseIcon className="text-indigo-300" width={26} height={26} />
+              <CloseIcon className="text-cyan-300" width={26} height={26} />
             </button>
           </div>
           <nav className="flex flex-col items-center gap-4 mt-8 text-lg font-medium">
@@ -175,17 +180,17 @@ function Navbar() {
                 key={item.id}
                 href={`#${item.id}`}
                 onClick={(e) => handleNavClick(e, item.id)}
-                className={`w-full text-center px-3 py-2 rounded-lg hover:bg-indigo-900/60 hover:text-indigo-300 transition-colors duration-200
+                className={`w-full text-center px-3 py-2 rounded-lg hover:text-cyan-300 transition-colors duration-200
                   ${
                     active === item.id
-                      ? "text-indigo-300 font-semibold"
+                      ? "text-cyan-300 font-semibold"
                       : "text-slate-200"
                   }`}
               >
                 {item.label}
                 <span
                   className={
-                    "block mx-auto mt-1 h-0.5 w-8 rounded-full bg-linear-to-r from-indigo-500 to-cyan-400 transition-all duration-300 " +
+                    "block mx-auto mt-1 h-0.5 w-8 rounded-full bg-linear-to-r from-[#06b6d4] to-[#06d42c] transition-all duration-300 " +
                     (active === item.id
                       ? "opacity-100 scale-100"
                       : "opacity-0 scale-0")

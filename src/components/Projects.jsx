@@ -164,7 +164,7 @@ function ProjectCard({ project, featured = false }) {
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-[#8b5cf6] to-[#06b6d4] px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-cyan-500/10 transition-transform duration-300 hover:scale-[1.03] focus:outline-none focus:ring-4 focus:ring-cyan-500/30"
+                className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-[#06b6d4] to-[#06d42c] px-5 py-2.5 text-sm font-semibold text-black shadow-lg shadow-cyan-500/10 transition-transform duration-300 hover:scale-[1.03] focus:outline-none focus:ring-4 focus:ring-cyan-500/30"
               >
                 View Project
               </a>
@@ -192,7 +192,7 @@ function Projects() {
                 aria-hidden="true"
               >
                 <div className="absolute -left-10 top-8 h-36 w-36 rounded-full bg-cyan-500/15 blur-3xl" />
-                <div className="absolute -right-6 bottom-0 h-44 w-44 rounded-full bg-fuchsia-500/10 blur-3xl" />
+                <div className="absolute -right-6 bottom-0 h-44 w-44 rounded-full bg-cyan-500/10 blur-3xl" />
               </div>
 
               <p className="inline-flex items-center rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-large font-semibold uppercase tracking-[0.3em] text-cyan-200">
@@ -201,7 +201,6 @@ function Projects() {
               <h2 className="mt-4 text-xl font-black tracking-tight text-white md:text-4xl">
                 Projects built to feel modern, functional, and polished.
               </h2>
-              
 
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 {[
@@ -223,8 +222,6 @@ function Projects() {
                   </div>
                 ))}
               </div>
-
-              
             </div>
 
             <div className="grid gap-6">

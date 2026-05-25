@@ -16,7 +16,7 @@ function Hero() {
         {/* Name Heading */}
         <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight drop-shadow-lg">
           Hi, I’m{" "}
-          <span className="bg-linear-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-[#06b6d4] to-[#06d42c] bg-clip-text text-transparent">
             Osanda Abeysinghe
           </span>
         </h1>
@@ -40,7 +40,7 @@ function Hero() {
         <div className="flex flex-col md:flex-row gap-4 mt-2">
           <a
             href="#projects"
-            className="inline-block bg-linear-to-r from-[#8b5cf6] to-[#06b6d4] text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:scale-105 transition-all duration-300 text-lg focus:outline-none focus:ring-4 focus:ring-indigo-500"
+            className="inline-block bg-linear-to-r from-[#06b6d4] to-[#06d42c] text-black font-semibold px-8 py-3 rounded-full shadow-lg hover:scale-105 transition-all duration-300 text-lg focus:outline-none focus:ring-4 focus:ring-indigo-500"
           >
             View My Projects
           </a>

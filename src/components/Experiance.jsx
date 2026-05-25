@@ -26,7 +26,7 @@ function Experience() {
                 aria-hidden="true"
               >
                 <div className="absolute -left-10 top-8 h-36 w-36 rounded-full bg-cyan-500/15 blur-3xl" />
-                <div className="absolute -right-6 bottom-0 h-44 w-44 rounded-full bg-fuchsia-500/10 blur-3xl" />
+                <div className="absolute -right-6 bottom-0 h-44 w-44 rounded-full bg-cyan-500/10 blur-3xl" />
               </div>
 
               <p className="inline-flex items-center rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-large font-semibold uppercase tracking-[0.3em] text-cyan-200">
@@ -39,8 +39,6 @@ function Experience() {
                 A concise overview of my internship experience and the skills I
                 strengthened while working on real projects.
               </p>
-
-              
             </div>
 
             <div className="relative">
@@ -85,8 +83,6 @@ function Experience() {
                     </div>
                   </article>
                 ))}
-
-                
               </div>
             </div>
           </div>
