@@ -72,8 +72,10 @@ function Contact() {
           <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-6 tracking-tight drop-shadow-lg">
             Get in <span className="accent-text">Touch</span>
           </h2>
-          <p className="mb-8 text-slate-300 text-md md:text-lg">
-            Feel free to reach out via email or connect with me on social media!
+          
+          <p className="text-slate-300 text-md md:text-lg max-w-2xl">
+            Feel free to reach out via email or connect with me on social media
+            — I usually reply within a couple of days.
           </p>
 
           {/* Social Media Links */}
