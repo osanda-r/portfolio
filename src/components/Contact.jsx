@@ -72,7 +72,7 @@ function Contact() {
           <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-6 tracking-tight drop-shadow-lg">
             Get in <span className="accent-text">Touch</span>
           </h2>
-          
+
           <p className="text-slate-300 text-md md:text-lg max-w-2xl">
             Feel free to reach out via email or connect with me on social media
             — I usually reply within a couple of days.
@@ -86,7 +86,7 @@ function Contact() {
               aria-label="Email"
             >
               <MailIcon
-                className="text-indigo-300 group-hover:animate-bounce"
+                className="text-cyan-300 group-hover:animate-bounce"
                 width={32}
                 height={32}
               />
@@ -99,7 +99,7 @@ function Contact() {
               aria-label="LinkedIn"
             >
               <LinkedinIcon
-                className="text-indigo-300 group-hover:animate-bounce"
+                className="text-cyan-300 group-hover:animate-bounce"
                 width={32}
                 height={32}
               />
@@ -125,7 +125,7 @@ function Contact() {
               aria-label="Facebook"
             >
               <FacebookIcon
-                className="text-indigo-300 group-hover:animate-bounce"
+                className="text-cyan-300 group-hover:animate-bounce"
                 width={32}
                 height={32}
               />
@@ -138,7 +138,7 @@ function Contact() {
               aria-label="Twitter"
             >
               <TwitterIcon
-                className="text-indigo-300 group-hover:animate-bounce"
+                className="text-cyan-300 group-hover:animate-bounce"
                 width={32}
                 height={32}
               />
