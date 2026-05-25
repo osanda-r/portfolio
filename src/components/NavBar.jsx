@@ -156,7 +156,7 @@ function Navbar() {
         {/* Mobile Dropdown Menu */}
         {showMenu && (
           <div
-            className="fixed inset-0 z-9998 bg-black/40"
+            className="fixed inset-0 z-9998 bg-black/70"
             onClick={() => setShowMenu(false)}
           ></div>
         )}
