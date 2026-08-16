@@ -7,9 +7,18 @@ import pro5 from "../images/pro5.png";
 import pro6 from "../images/pro6.png";
 import pro7 from "../images/pro7.png";
 import pro8 from "../images/pro8.png";
+import pro9 from "../images/pro9.jpeg";
 import github_pro from "../images/github_pro.png";
 
 const projects = [
+  {
+    title: "GovFactory",
+    description:
+      "Workshop planning system for the Department of Government Factory, Kolonnawa, Sri Lanka.",
+    image: pro9,
+    url: "https://osanda-r.github.io/GovFactory/",
+    tag: "Full Stack",
+  },
   {
     title: "Smart Parcel Delivery System",
     description:
@@ -204,9 +213,9 @@ function Projects() {
 
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 {[
-                  { value: "12", label: "Projects" },
-                  { value: "4", label: "Categories" },
-                  { value: "2", label: "Featured builds" },
+                  { value: "13+", label: "Projects" },
+                  { value: "4+", label: "Categories" },
+                  { value: "100%", label: "Real-world " },
                   { value: "100%", label: "Hands-on" },
                 ].map((stat) => (
                   <div
