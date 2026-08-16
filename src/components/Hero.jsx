@@ -90,11 +90,25 @@ function Hero() {
         {/* Description Paragraphs */}
         <div className="max-w-4xl mx-auto space-y-4 text-base md:text-lg text-slate-300 leading-relaxed mb-8">
           <p>
-            with a strong passion for technology, innovation, and continuous
-            learning. I possess hands-on experience in software engineering, web
-            and mobile application development, AI engineering, database design,
-            IoT systems, data science, and quality assurance.With strong
-            analytical thinking and problem-solving abilities.
+            I bring a combination of software engineering expertise, AI & ML
+            knowledge, cloud technologies, and hands-on experience building
+            real-world applications. My technical foundation spans full-stack
+            development, React.js, Java, Python, REST APIs, databases, Firebase,
+            cloud platforms, microservices, and software testing, enabling me to
+            approach software development from both technical and business
+            perspectives. <br></br><br></br>I focus on transforming real-world requirements into
+            scalable, intelligent, and reliable software solutions. I have
+            experience developing responsive applications, integrating APIs and
+            cloud services, working with data-driven and AI-powered solutions,
+            and designing modular architectures that can evolve with changing
+            requirements. Through practical projects, I have developed a strong
+            understanding of AI/ML integration, cloud-based application
+            development, distributed systems, and microservice-oriented
+            architectures.<br></br><br></br> Beyond technical implementation, I bring a
+            problem-solving mindset, continuous-learning attitude, and
+            user-focused approach. I aim to build technology that is not only
+            functional, but also maintainable, secure, scalable, and capable of
+            creating meaningful real-world impact.
           </p>
         </div>
 
