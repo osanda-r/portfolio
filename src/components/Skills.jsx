@@ -29,23 +29,24 @@ const skillGroups = [
     skills: [
       { name: "Java", icon: SiOpenjdk, color: "text-orange-400" },
       { name: "Python", icon: SiPython, color: "text-sky-400" },
+      { name: "JavaScript", icon: SiJavascript, color: "text-yellow-300" },
       { name: "TypeScript", icon: SiTypescript, color: "text-sky-500" },
+      { name: "PHP", icon: SiPhp, color: "text-indigo-300" },
       { name: "C ", icon: SiC, color: "text-sky-500" },
     ],
   },
   {
-    title: "Web Development",
+    title: "Frontend Development",
     summary:
       "Modern frontend tools for responsive interfaces and reusable components.",
     skills: [
       { name: "React", icon: SiReact, color: "text-cyan-300" },
       { name: "Vue", icon: SiVuedotjs, color: "text-emerald-400" },
       { name: "Next.js", icon: SiNextdotjs, color: "text-slate-100" },
-      { name: "JavaScript", icon: SiJavascript, color: "text-yellow-300" },
+
       { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-sky-400" },
       { name: "HTML5", icon: SiHtml5, color: "text-orange-500" },
       { name: "CSS3", icon: SiCss, color: "text-blue-500" },
-      { name: "PHP", icon: SiPhp, color: "text-indigo-300" },
     ],
   },
   {
