@@ -68,11 +68,24 @@ function Hero() {
 
           <div className="absolute inset-0 -z-10 rounded-full bg-linear-to-r from-cyan-400/18 via-sky-300/10 to-transparent blur-2xl" />
 
-          <img
-            src={my}
-            alt="Your Photo"
-            className="relative z-10 mx-auto w-56 h-56 md:w-72 md:h-72 rounded-full border-2 border-white/10 object-cover shadow-2xl shadow-cyan-500/20 hover:scale-105 transition-transform duration-300 floaty"
-          />
+          <div className="portrait-stage relative">
+            <div className="portrait-orbits" aria-hidden="true">
+              <span className="portrait-orbit portrait-orbit-cyan" />
+              <span className="portrait-orbit portrait-orbit-lime" />
+              <span className="portrait-orbit portrait-orbit-dashed" />
+              <span className="portrait-orbit-dot portrait-dot-one" />
+              <span className="portrait-orbit-dot portrait-dot-two" />
+              <span className="portrait-orbit-dot portrait-dot-three" />
+              <span className="portrait-particle portrait-particle-one" />
+              <span className="portrait-particle portrait-particle-two" />
+              <span className="portrait-particle portrait-particle-three" />
+            </div>
+            <img
+              src={my}
+              alt="Your Photo"
+              className="relative z-10 mx-auto w-56 h-56 md:w-72 md:h-72 rounded-full border-2 border-white/10 object-cover shadow-2xl shadow-cyan-500/20 hover:scale-105 transition-transform duration-300 floaty"
+            />
+          </div>
         </div>
 
         {/* Name Heading */}
