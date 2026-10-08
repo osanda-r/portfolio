@@ -18,7 +18,7 @@ function Experience() {
   return (
     <section id="experience" className="relative z-10 py-20 sm:py-24">
       <div className="container mx-auto px-4">
-        <div className="rounded-4xl border border-white/10 bg-slate-950/70 p-6 shadow-2xl shadow-black/20 backdrop-blur-xl md:p-10 lg:p-12">
+        <div className="rounded-4xl border border-white/10 bg-slate-950/50 p-6 shadow-2xl shadow-black/20 backdrop-blur-xl md:p-10 lg:p-12">
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 backdrop-blur-md md:p-8">
               <div
