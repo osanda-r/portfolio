@@ -142,7 +142,7 @@
   left: 50%;
   width: 92%;
   height: 92%;
-  border: 1px solid rgba(34, 211, 238, 0.2);
+  border: 1px solid rgba(34, 211, 238, 0.367);
   border-radius: 50%;
   transform: translate(-50%, -50%);
 }
@@ -154,7 +154,7 @@
 .hero-profile-ring-two {
   width: 105%;
   height: 105%;
-  border-color: rgba(190, 242, 100, 0.16);
+  border-color: rgba(190, 242, 100, 0.711);
   animation: hero-ring-pulse 8s 1s ease-in-out infinite reverse;
 }
 
@@ -162,7 +162,7 @@
   width: 125%;
   height: 62%;
   border-style: dashed;
-  border-color: rgba(148, 163, 184, 0.2);
+  border-color: rgba(148, 163, 184, 0.468);
   transform: translate(-50%, -50%) rotate(28deg);
   animation: hero-ring-spin 18s linear infinite;
 }
@@ -311,7 +311,7 @@
 }
 
 .hero-profile-tag-bottom {
-  bottom: 16%;
+  bottom: 38%;
   left: 1%;
   animation: hero-tag-float 6s 0.6s ease-in-out infinite reverse;
 }
