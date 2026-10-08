@@ -8,19 +8,18 @@ function Hero() {
         <div className="hero-copy">
           <div className="hero-eyebrow">
             <span className="hero-status-dot" />
-            OPEN TO BUILDING WHAT'S NEXT
+            Turning ideas into intelligent experiences.
           </div>
 
           <h1 className="hero-heading">
-            Building the
-            <span>next layer</span>
-            of digital.
+            Open to <span> code</span>
+            what's next.
           </h1>
 
           <p className="hero-description">
-            I&apos;m Osanda Abeysinghe — a software engineer crafting
-            intelligent products at the intersection of full-stack development,
-            AI, and human-centered design.
+            I build intelligent digital solutions at the intersection of
+            software, AI, and cloud. I turn real-world problems into scalable,
+            reliable, and meaningful products.
           </p>
 
           <div className="hero-actions">
