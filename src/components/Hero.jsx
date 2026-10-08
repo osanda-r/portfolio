@@ -8,7 +8,7 @@ function Hero() {
         <div className="hero-copy">
           <div className="hero-eyebrow">
             <span className="hero-status-dot" />
-            Available for meaningful work
+            OPEN TO BUILDING WHAT'S NEXT
           </div>
 
           <h1 className="hero-heading">
@@ -19,21 +19,28 @@ function Hero() {
 
           <p className="hero-description">
             I&apos;m Osanda Abeysinghe — a software engineer crafting
-            intelligent products at the intersection of full-stack
-            development, AI, and human-centered design.
+            intelligent products at the intersection of full-stack development,
+            AI, and human-centered design.
           </p>
 
           <div className="hero-actions">
             <a href="#projects" className="hero-button hero-button-primary">
               Explore my work <ArrowUpRight aria-hidden="true" />
             </a>
-            <a href="/resume.pdf" download className="hero-button hero-button-secondary">
+            <a
+              href="/resume.pdf"
+              download
+              className="hero-button hero-button-secondary"
+            >
               Download resume
             </a>
           </div>
         </div>
 
-        <div className="hero-profile-scene" aria-label="Osanda Abeysinghe profile">
+        <div
+          className="hero-profile-scene"
+          aria-label="Osanda Abeysinghe profile"
+        >
           <div className="hero-profile-orbits" aria-hidden="true">
             <span className="hero-profile-ring hero-profile-ring-one" />
             <span className="hero-profile-ring hero-profile-ring-two" />
@@ -50,14 +57,22 @@ function Hero() {
               </span>
             </div>
             <div className="hero-profile-image-wrap">
-              <img src={my} alt="Osanda Abeysinghe" className="hero-profile-image" />
+              <img
+                src={my}
+                alt="Osanda Abeysinghe"
+                className="hero-profile-image"
+              />
             </div>
             <div className="hero-profile-name">Osanda Abeysinghe</div>
             <div className="hero-profile-role">Software / AI Engineer</div>
             <div className="hero-profile-divider" />
             <div className="hero-profile-skills">
-              <span><Code2 aria-hidden="true" /> Full stack</span>
-              <span><Cpu aria-hidden="true" /> AI &amp; ML</span>
+              <span>
+                <Code2 aria-hidden="true" /> Full stack
+              </span>
+              <span>
+                <Cpu aria-hidden="true" /> AI &amp; ML
+              </span>
             </div>
           </div>
 
