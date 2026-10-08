@@ -1,89 +1,67 @@
-import { ArrowUpRight, Code2, Cpu, Sparkles } from "lucide-react";
-import my from "../images/my2.PNG";
+import { ArrowUpRight, Download } from "lucide-react";
+import Reveal from "./Reveal";
+import Magnetic from "./Magnetic";
+import PortraitStage from "./PortraitStage";
+
+const RESUME_URL = `${import.meta.env.BASE_URL}resume.pdf`;
 
 function Hero() {
   return (
-    <section className="hero-section relative z-10 overflow-hidden px-4 pb-20 pt-32 md:px-8 md:pb-28 md:pt-40">
-      <div className="hero-layout container mx-auto">
-        <div className="hero-copy">
-          <div className="hero-eyebrow">
-            <span className="hero-status-dot" />
-            Turning ideas into intelligent experiences.
-          </div>
+    <section
+      id="top"
+      className="relative flex min-h-svh flex-col overflow-hidden px-5 pb-8 pt-28 md:px-8 md:pt-32"
+    >
+      <div aria-hidden="true" className="hero-floor">
+        <div className="hero-floor-inner" />
+      </div>
 
-          <h1 className="hero-heading">
-            Open to <span> code</span>
-            what's next.
+      <div className="relative mx-auto my-auto grid w-full max-w-7xl items-center gap-16 py-4 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
+        <div>
+          <Reveal>
+            <p className="eyebrow">
+              <span className="eyebrow-dot" aria-hidden="true" />
+              Turning ideas into intelligent experiences.
+            </p>
+          </Reveal>
+
+          <h1 className="display-xl mt-8">
+            <Reveal as="span" delay={80} className="block">
+              Open to
+            </Reveal>
+            <Reveal as="span" delay={160} className="block">
+              <span className="serif-accent">code</span>
+            </Reveal>
+            <Reveal as="span" delay={240} className="block">
+              what&apos;s next.
+            </Reveal>
           </h1>
 
-          <p className="hero-description">
-            I build intelligent digital solutions at the intersection of
-            software, AI, and cloud. I turn real-world problems into scalable,
-            reliable, and meaningful products.
-          </p>
+          <Reveal as="p" delay={320} className="lead mt-8 max-w-xl">
+            I build intelligent digital solutions at the intersection of software, AI, and cloud.
+            I turn real-world problems into scalable, reliable, and meaningful products.
+          </Reveal>
 
-          <div className="hero-actions">
-            <a href="#projects" className="hero-button hero-button-primary">
-              Explore my work <ArrowUpRight aria-hidden="true" />
-            </a>
-            <a
-              href="/resume.pdf"
-              download
-              className="hero-button hero-button-secondary"
-            >
+          <Reveal delay={400} className="mt-10 flex flex-wrap items-center gap-3">
+            <Magnetic strength={0.22}>
+              <a href="#projects" className="btn-primary">
+                Explore my work
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              </a>
+            </Magnetic>
+            <a href={RESUME_URL} download className="btn-ghost">
               Download resume
+              <Download className="h-4 w-4" aria-hidden="true" />
             </a>
-          </div>
+          </Reveal>
         </div>
 
-        <div
-          className="hero-profile-scene"
-          aria-label="Osanda Abeysinghe profile"
-        >
-          <div className="hero-profile-orbits" aria-hidden="true">
-            <span className="hero-profile-ring hero-profile-ring-one" />
-            <span className="hero-profile-ring hero-profile-ring-two" />
-            <span className="hero-profile-ring hero-profile-ring-three" />
-            <span className="hero-profile-dot hero-profile-dot-one" />
-            <span className="hero-profile-dot hero-profile-dot-two" />
-          </div>
+        <PortraitStage />
+      </div>
 
-          <div className="hero-profile-card">
-            <div className="hero-profile-meta">
-              <span>OS / 01</span>
-              <span className="hero-online">
-                <i /> Online
-              </span>
-            </div>
-            <div className="hero-profile-image-wrap">
-              <img
-                src={my}
-                alt="Osanda Abeysinghe"
-                className="hero-profile-image"
-              />
-            </div>
-            <div className="hero-profile-name">Osanda Abeysinghe</div>
-            <div className="hero-profile-role">Software / AI Engineer</div>
-            <div className="hero-profile-divider" />
-            <div className="hero-profile-skills">
-              <span>
-                <Code2 aria-hidden="true" /> Full stack
-              </span>
-              <span>
-                <Cpu aria-hidden="true" /> AI &amp; ML
-              </span>
-            </div>
-          </div>
-
-          <div className="hero-profile-tag hero-profile-tag-top">
-            <Sparkles aria-hidden="true" />
-            Creative technologist
-          </div>
-          <div className="hero-profile-tag hero-profile-tag-bottom">
-            <b>&lt;/&gt;</b>
-            Make it useful.
-          </div>
-        </div>
+      <div className="relative mt-auto flex justify-center pt-6">
+        <a href="#skills" className="scroll-cue" aria-label="Scroll to skills">
+          Scroll
+        </a>
       </div>
     </section>
   );

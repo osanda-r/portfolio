@@ -1,3 +1,9 @@
+import { Building2, Check, MapPin } from "lucide-react";
+import Reveal from "./Reveal";
+import SectionHeader from "./SectionHeader";
+import TiltCard from "./TiltCard";
+import { useInView } from "../hooks/useInView";
+
 const experienceItems = [
   {
     role: "Intern Software Engineer",
@@ -15,77 +21,68 @@ const experienceItems = [
 ];
 
 function Experience() {
+  const [railRef, railVisible] = useInView({ threshold: 0.1 });
+
   return (
-    <section id="experience" className="relative z-10 py-20 sm:py-24">
-      <div className="container mx-auto px-4">
-        <div className="rounded-4xl border border-white/10 bg-slate-950/50 p-6 shadow-2xl shadow-black/20 backdrop-blur-xl md:p-10 lg:p-12">
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 backdrop-blur-md md:p-8">
-              <div
-                className="pointer-events-none absolute inset-0 overflow-hidden"
-                aria-hidden="true"
-              >
-                <div className="absolute -left-10 top-8 h-36 w-36 rounded-full bg-cyan-500/15 blur-3xl" />
-                <div className="absolute -right-6 bottom-0 h-44 w-44 rounded-full bg-cyan-500/10 blur-3xl" />
-              </div>
+    <section id="experience" className="relative px-5 py-24 md:px-8 md:py-28">
+      <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+        <div className="lg:sticky lg:top-32 lg:self-start">
+          <SectionHeader
+            index="02"
+            eyebrow="Work Experience"
+            title={
+              <>
+                Practical experience from <span className="serif-accent">real software work.</span>
+              </>
+            }
+            lead="A concise overview of my internship experience and the skills I strengthened while working on real projects."
+          />
+        </div>
 
-              <p className="inline-flex items-center rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-large font-semibold uppercase tracking-[0.3em] text-cyan-200">
-                Work Experience
-              </p>
-              <h2 className="mt-4 text-xl font-black tracking-tight text-white md:text-4xl">
-                Practical experience from real software work.
-              </h2>
-              <p className="mt-4 text-base leading-7 text-slate-300 md:text-lg">
-                A concise overview of my internship experience and the skills I
-                strengthened while working on real projects.
-              </p>
-            </div>
+        <div ref={railRef} className="relative">
+          <span aria-hidden="true" className={`timeline-rail ${railVisible ? "is-visible" : ""}`} />
 
-            <div className="relative">
-              <div className="absolute left-5 top-0 h-full w-px bg-linear-to-b from-cyan-400/60 via-white/10 to-transparent" />
-
-              <div className="space-y-6 pl-0 md:pl-10">
-                {experienceItems.map((item) => (
-                  <article
-                    key={`${item.company}-${item.role}`}
-                    className="relative rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 backdrop-blur-md md:p-7"
-                  >
-                    <div className="absolute left-[-1.15rem] top-7 hidden h-7 w-7 rounded-full border border-cyan-400/40 bg-slate-950 ring-4 ring-slate-950 md:block" />
-
+          <ol className="space-y-6">
+            {experienceItems.map((item, index) => (
+              <li key={`${item.company}-${item.role}`} className="relative pl-9 md:pl-12">
+                <span aria-hidden="true" className="timeline-node" />
+                <Reveal delay={index * 120}>
+                  <TiltCard max={4} className="glass rounded-[1.75rem] p-6 md:p-9">
                     <div className="flex flex-wrap items-center gap-3">
-                      <span className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-cyan-200">
-                        {item.period}
-                      </span>
-                      <span className="text-sm text-slate-400">
+                      <span className="pill">{item.period}</span>
+                      <span className="inline-flex items-center gap-1.5 text-sm text-fg-3">
+                        <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
                         {item.location}
                       </span>
                     </div>
 
-                    <h3 className="mt-4 text-2xl font-bold tracking-tight text-white">
-                      {item.role}
-                    </h3>
-                    <p className="mt-2 text-lg font-semibold text-cyan-200">
+                    <h3 className="display-md mt-6 md:text-[2.4rem]">{item.role}</h3>
+                    <p className="mt-3 inline-flex items-center gap-2 text-lg font-medium text-violet-200">
+                      <Building2 className="h-5 w-5 text-violet-300" aria-hidden="true" />
                       {item.company}
                     </p>
-                    <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300 md:text-base">
+                    <p className="mt-6 max-w-2xl text-[0.98rem] leading-8 text-fg-2">
                       {item.description}
                     </p>
 
-                    <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                    <ul className="mt-8 space-y-3">
                       {item.highlights.map((highlight) => (
-                        <div
+                        <li
                           key={highlight}
-                          className="rounded-2xl border border-white/10 bg-slate-950/55 px-4 py-3 text-sm leading-6 text-slate-200"
+                          className="flex items-center gap-4 rounded-2xl border border-white/[0.07] bg-white/[0.025] px-5 py-4 text-[0.95rem] leading-6 text-fg-2"
                         >
+                          <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-violet-500/15 text-violet-300">
+                            <Check className="h-3 w-3" strokeWidth={3} aria-hidden="true" />
+                          </span>
                           {highlight}
-                        </div>
+                        </li>
                       ))}
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </div>
+                    </ul>
+                  </TiltCard>
+                </Reveal>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>
