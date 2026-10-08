@@ -1,24 +1,18 @@
 // src/components/Footer.jsx
-// React import not required with the new JSX transform
+import { ArrowUp } from "lucide-react";
 
 function Footer() {
   return (
-    <footer className="bg-transparent text-slate-400 py-6 md:py-8 text-center shadow-inner mt-10 relative z-10">
-      <div className="container mx-auto flex flex-col items-center">
-        <p className="text-md md:text-lg font-semibold tracking-wide relative group">
-          <span className="inline-block group-hover:underline group-hover:decoration-wavy group-hover:decoration-2 transition-all duration-300">
-            &copy; {new Date().getFullYear()} Osanda Abeysinghe. All rights
-            reserved.
-          </span>
-        </p>
-        <div className="mt-2 flex gap-3 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-          <a
-            href="#"
-            className="hover:text-indigo-300 transition-colors duration-200 text-sm"
-          >
-            Back to Top
-          </a>
-        </div>
+    <footer className="relative border-t border-white/[0.06] px-5 py-10 md:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 text-sm text-fg-3 md:flex-row">
+        <p>&copy; {new Date().getFullYear()} Osanda Abeysinghe. All rights reserved.</p>
+        <a
+          href="#top"
+          className="group inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-fg-2 transition-colors duration-300 hover:text-fg"
+        >
+          Back to top
+          <ArrowUp className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5" aria-hidden="true" />
+        </a>
       </div>
     </footer>
   );

@@ -1,208 +1,220 @@
-// src/components/Navbar.jsx
-import React, { useState } from "react";
-import signature4 from "../images/signature4.png";
+// src/components/NavBar.jsx
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { ArrowUpRight, Download, Menu, X } from "lucide-react";
+import signature from "../images/signature4.png";
 
-function MenuIcon({ className = "", width = 24, height = 24 }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-      width={width}
-      height={height}
-      aria-hidden="true"
-    >
-      <path d="M4 6h16" />
-      <path d="M4 12h16" />
-      <path d="M4 18h16" />
-    </svg>
-  );
-}
+const RESUME_URL = `${import.meta.env.BASE_URL}resume.pdf`;
 
-function CloseIcon({ className = "", width = 24, height = 24 }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-      width={width}
-      height={height}
-      aria-hidden="true"
-    >
-      <path d="M6 6l12 12" />
-      <path d="M18 6 6 18" />
-    </svg>
-  );
-}
+const LINKS = [
+  { id: "skills", label: "Skills" },
+  { id: "experience", label: "Experience" },
+  { id: "projects", label: "Projects" },
+  { id: "contact", label: "Contact" },
+];
 
 function Navbar() {
-  const [showMenu, setShowMenu] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
+  const indicatorRef = useRef(null);
+  const linkRefs = useRef({});
 
-  React.useEffect(() => {
-    const sections = ["skills", "projects", "contact"];
+  // Track scroll position and which section currently sits near the top of the viewport.
+  useEffect(() => {
+    let frame = 0;
 
-    const updateActiveSection = () => {
-      setScrolled(window.scrollY > 10);
+    const update = () => {
+      frame = 0;
+      setScrolled(window.scrollY > 24);
 
-      const marker = window.scrollY + window.innerHeight * 0.35;
+      const marker = window.innerHeight * 0.4;
       let current = "";
-
-      for (const sec of sections) {
-        const el = document.getElementById(sec);
-        if (el && el.offsetTop <= marker) {
-          current = sec;
-        }
+      for (const { id } of LINKS) {
+        const section = document.getElementById(id);
+        if (section && section.getBoundingClientRect().top <= marker) current = id;
       }
-
       setActive(current);
     };
 
-    updateActiveSection();
-    window.addEventListener("scroll", updateActiveSection, { passive: true });
-    window.addEventListener("resize", updateActiveSection);
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+
+    frame = requestAnimationFrame(update);
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
 
     return () => {
-      window.removeEventListener("scroll", updateActiveSection);
-      window.removeEventListener("resize", updateActiveSection);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+      cancelAnimationFrame(frame);
     };
   }, []);
 
-  // Smooth scroll
-  const handleNavClick = (e, id) => {
-    e.preventDefault();
-    setShowMenu(false);
-    setActive(id);
-    const el = document.getElementById(id);
-    if (el) {
-      window.scrollTo({
-        top: el.offsetTop - 60,
-        behavior: "smooth",
-      });
+  // Slide the highlight pill under the active link.
+  const placeIndicator = useCallback(() => {
+    const indicator = indicatorRef.current;
+    if (!indicator) return;
+    const link = linkRefs.current[active];
+    if (!link) {
+      indicator.style.opacity = "0";
+      return;
     }
+    indicator.style.opacity = "1";
+    indicator.style.width = `${link.offsetWidth}px`;
+    indicator.style.transform = `translateX(${link.offsetLeft}px)`;
+  }, [active]);
+
+  useLayoutEffect(() => {
+    placeIndicator();
+    window.addEventListener("resize", placeIndicator);
+    return () => window.removeEventListener("resize", placeIndicator);
+  }, [placeIndicator]);
+
+  // Lock page scroll and allow Escape while the mobile menu is open.
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+    const previousOverflow = document.body.style.overflow;
+    const onKey = (event) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [menuOpen]);
+
+  const navigate = (id) => (event) => {
+    event.preventDefault();
+    setMenuOpen(false);
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.history.replaceState(null, "", `#${id}`);
   };
 
   return (
-    <nav
-      className={`fixed top-0 left-0 w-full z-9999 transition-all duration-300 ${
-        scrolled ? "backdrop-blur-md surface shadow-lg" : "bg-transparent"
-      }`}
-    >
-      <div className="container mx-auto flex justify-between items-center py-3 px-4 md:px-8">
-        {/* Logo with animation */}
-        <a href="#" className="flex items-center group">
-          <img
-            src={signature4}
-            alt="Logo"
-            className="w-36 md:w-44 lg:w-52 h-12 md:h-14 lg:h-16 drop-shadow-lg group-hover:scale-110 group-hover:rotate-2 transition-transform duration-300"
-          />
-        </a>
-
-        {/* Navigation Links */}
-        <div className="hidden md:flex space-x-6 text-lg font-medium">
-          {[
-            { id: "skills", label: "Skills" },
-            { id: "projects", label: "Projects" },
-            { id: "contact", label: "Contact" },
-          ].map((item) => (
-            <a
-              key={item.id}
-              href={`#${item.id}`}
-              onClick={(e) => handleNavClick(e, item.id)}
-              className={`px-3 py-1 rounded-lg relative transition-colors duration-200
-                hover:text-cyan-300
-                ${
-                  active === item.id
-                    ? "text-cyan-300 font-semibold"
-                    : "text-slate-200"
-                }`}
-            >
-              {item.label}
-              <span
-                className={
-                  "absolute left-1/2 -translate-x-1/2 -bottom-0.5 h-0.5 w-8 rounded-full bg-linear-to-r from-[#06b6d4] to-[#06d42c] transition-all duration-300 " +
-                  (active === item.id
-                    ? "opacity-100 scale-100"
-                    : "opacity-0 scale-0")
-                }
-                aria-hidden="true"
-              />
-            </a>
-          ))}
-        </div>
-
-        {!showMenu && (
-          <div className="md:hidden flex items-center z-10000">
-            <button
-              className="bg-[#0b1226]/80 border border-cyan-800 px-4 py-2 rounded-xl hover:bg-[#0b1226]/60 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-600"
-              onClick={() => setShowMenu(true)}
-              aria-label="Open navigation menu"
-              aria-expanded={showMenu}
-            >
-              <MenuIcon className="text-cyan-300" width={26} height={26} />
-            </button>
-          </div>
-        )}
-
-        {/* Mobile Dropdown Menu */}
-        {showMenu && (
-          <div
-            className="fixed inset-0 z-9998 bg-black/70"
-            onClick={() => setShowMenu(false)}
-          ></div>
-        )}
+    <>
+      <header className="fixed inset-x-0 top-0 z-50 px-5 pt-3 md:px-8 md:pt-5">
         <div
-          className={`fixed top-0 right-0 z-10001 w-64 h-full surface shadow-2xl transform transition-transform duration-300 md:hidden ${
-            showMenu ? "translate-x-0" : "translate-x-full"
+          aria-hidden="true"
+          className={`pointer-events-none absolute inset-x-0 top-0 h-32 bg-linear-to-b from-ink-950 via-ink-950/70 to-transparent transition-opacity duration-500 ${
+            scrolled ? "opacity-100" : "opacity-0"
+          }`}
+        />
+        <nav
+          aria-label="Primary"
+          className={`relative mx-auto grid max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-3 rounded-full transition-[padding,background-color,border-color,box-shadow] duration-500 ${
+            scrolled ? "glass-nav px-3 py-2" : "border border-transparent px-0 py-2"
           }`}
         >
-          <div className="flex justify-end p-4">
-            <button onClick={() => setShowMenu(false)} aria-label="Close menu">
-              <CloseIcon className="text-cyan-300" width={26} height={26} />
+          <a
+            href="#top"
+            onClick={navigate("top")}
+            aria-label="Osanda Abeysinghe, back to top"
+            className="col-start-1 flex justify-self-start items-center rounded-full"
+          >
+            <img src={signature} alt="" className="h-11 w-auto md:h-12" />
+          </a>
+
+          <ul className="relative col-start-2 hidden items-center rounded-full border border-white/[0.07] bg-white/[0.03] p-1 md:flex">
+            <span
+              ref={indicatorRef}
+              aria-hidden="true"
+              className="nav-indicator"
+              style={{ opacity: 0 }}
+            />
+            {LINKS.map(({ id, label }) => (
+              <li key={id}>
+                <a
+                  ref={(node) => {
+                    linkRefs.current[id] = node;
+                  }}
+                  href={`#${id}`}
+                  onClick={navigate(id)}
+                  aria-current={active === id ? "location" : undefined}
+                  className={`relative z-10 block rounded-full px-4 py-2 text-sm transition-colors duration-300 ${
+                    active === id ? "text-fg" : "text-fg-2 hover:text-fg"
+                  }`}
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div className="col-start-3 flex items-center justify-self-end gap-2">
+            <a href={RESUME_URL} download className="btn-ghost btn-sm hidden md:inline-flex">
+              Resume
+              <Download className="h-4 w-4" aria-hidden="true" />
+            </a>
+            <button
+              type="button"
+              onClick={() => setMenuOpen(true)}
+              aria-label="Open navigation menu"
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
+              className="grid h-11 w-11 place-items-center rounded-full border border-white/[0.1] bg-white/[0.04] text-fg md:hidden"
+            >
+              <Menu className="h-5 w-5" aria-hidden="true" />
             </button>
           </div>
-          <nav className="flex flex-col items-center gap-4 mt-8 text-lg font-medium">
-            {[
-              { id: "skills", label: "Skills" },
-              { id: "projects", label: "Projects" },
-              { id: "contact", label: "Contact" },
-            ].map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                onClick={(e) => handleNavClick(e, item.id)}
-                className={`w-full text-center px-3 py-2 rounded-lg hover:text-cyan-300 transition-colors duration-200
-                  ${
-                    active === item.id
-                      ? "text-cyan-300 font-semibold"
-                      : "text-slate-200"
+        </nav>
+      </header>
+
+      <div
+        id="mobile-menu"
+        aria-hidden={!menuOpen}
+        inert={!menuOpen}
+        className={`fixed inset-0 z-[60] transition-opacity duration-500 md:hidden ${
+          menuOpen ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+      >
+        <div
+          className="absolute inset-0 bg-ink-950/95 backdrop-blur-2xl"
+          onClick={() => setMenuOpen(false)}
+        />
+        <div className="relative flex h-full flex-col px-6 pb-10 pt-5">
+          <div className="flex justify-end">
+            <button
+              type="button"
+              onClick={() => setMenuOpen(false)}
+              aria-label="Close navigation menu"
+              className="grid h-11 w-11 place-items-center rounded-full border border-white/[0.1] bg-white/[0.04] text-fg"
+            >
+              <X className="h-5 w-5" aria-hidden="true" />
+            </button>
+          </div>
+
+          <nav aria-label="Mobile" className="mt-10">
+            <ul>
+              {LINKS.map(({ id, label }, index) => (
+                <li
+                  key={id}
+                  className={`transition-all duration-500 ${
+                    menuOpen ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
                   }`}
-              >
-                {item.label}
-                <span
-                  className={
-                    "block mx-auto mt-1 h-0.5 w-8 rounded-full bg-linear-to-r from-[#06b6d4] to-[#06d42c] transition-all duration-300 " +
-                    (active === item.id
-                      ? "opacity-100 scale-100"
-                      : "opacity-0 scale-0")
-                  }
-                  aria-hidden="true"
-                />
-              </a>
-            ))}
+                  style={{ transitionDelay: menuOpen ? `${120 + index * 70}ms` : "0ms" }}
+                >
+                  <a
+                    href={`#${id}`}
+                    onClick={navigate(id)}
+                    className="flex items-center justify-between border-b border-white/[0.08] py-5 text-4xl font-semibold tracking-tight text-fg"
+                  >
+                    {label}
+                    <ArrowUpRight className="h-6 w-6 text-violet-300" aria-hidden="true" />
+                  </a>
+                </li>
+              ))}
+            </ul>
           </nav>
+
+          <a href={RESUME_URL} download className="btn-primary mt-auto w-full justify-center">
+            Download resume
+          </a>
         </div>
       </div>
-    </nav>
+    </>
   );
 }
 
