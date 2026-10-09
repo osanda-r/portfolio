@@ -8,6 +8,7 @@ function Marquee() {
       aria-label="Technologies I work with"
       className="marquee-wrap relative overflow-hidden border-y border-white/[0.06] bg-ink-900/60 py-5"
     >
+      <div className="marquee-label" aria-hidden="true">STACK / ACTIVE</div>
       <div className="marquee-mask">
         <div className="marquee-track">
           {[false, true].map((isCopy) => (

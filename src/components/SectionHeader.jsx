@@ -9,7 +9,7 @@ function SectionHeader({ index, eyebrow, title, lead, align = "left" }) {
       <Reveal className={`flex items-center gap-4 ${centered ? "justify-center" : ""}`}>
         {index ? (
           <>
-            <span className="font-mono text-xs tracking-[0.2em] text-fg-3">{index}</span>
+            <span className="section-index">[{index}]</span>
             <span
               aria-hidden="true"
               className="h-px w-10 bg-linear-to-r from-violet-400/70 to-transparent"

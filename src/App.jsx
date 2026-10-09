@@ -1,4 +1,5 @@
 import AnimatedBackground from "./components/AnimatedBackground";
+import RocketCursor from "./components/RocketCursor";
 import ScrollProgress from "./components/ScrollProgress";
 import Navbar from "./components/NavBar";
 import Hero from "./components/Hero";
@@ -14,6 +15,7 @@ function App() {
     <div className="relative isolate min-h-screen overflow-x-clip">
       <AnimatedBackground />
       <ScrollProgress />
+      <RocketCursor />
       <Navbar />
       <main>
         <Hero />

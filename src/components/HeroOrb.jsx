@@ -2,9 +2,9 @@ import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 
-const VIOLET = 0x8470ff;
-const VIOLET_SOFT = 0xc4bdff;
-const CHAMPAGNE = 0xe8c98f;
+const VIOLET = 0x30bfe6;
+const VIOLET_SOFT = 0xa7eaff;
+const CHAMPAGNE = 0xffb87a;
 
 // The camera is far away with a narrow lens so the rings keep their shape
 // (little perspective distortion) and always fit inside the square canvas.
@@ -67,7 +67,7 @@ function HeroOrb() {
     const core = new THREE.Mesh(
       new THREE.SphereGeometry(1.15, 96, 96),
       new THREE.MeshPhysicalMaterial({
-        color: 0x1a1733,
+        color: 0x0b263e,
         metalness: 0.55,
         roughness: 0.28,
         clearcoat: 1,

@@ -126,7 +126,7 @@ const stats = [
 function Stat({ value, suffix, label, active, instant }) {
   const shown = useCountUp(value, active, { instant });
   return (
-    <div className="glass rounded-2xl p-5 md:p-6">
+    <div className="glass mission-stat rounded-2xl p-5 md:p-6">
       <div className="text-3xl font-semibold tracking-tight tabular-nums md:text-4xl">
         {shown}
         {suffix}
@@ -165,12 +165,12 @@ function ProjectCover({ project, featured = false }) {
   );
 }
 
-function ProjectCard({ project, featured }) {
+function ProjectCard({ project, featured, index }) {
   return (
     <TiltCard
       as="article"
       max={4}
-      className={`glass group flex h-full flex-col overflow-hidden rounded-[1.75rem] ${
+      className={`glass project-mission group flex h-full flex-col overflow-hidden rounded-[1.75rem] ${
         featured ? "xl:flex-row" : ""
       }`}
     >
@@ -180,6 +180,7 @@ function ProjectCard({ project, featured }) {
         }`}
       >
         <ProjectCover project={project} featured={featured} />
+        <span className="project-orbit-mark" aria-hidden="true">◈ / MISSION {String(index + 1).padStart(2, "0")}</span>
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-linear-to-t from-ink-900 via-ink-900/10 to-transparent"
@@ -241,7 +242,7 @@ function Projects() {
           eyebrow="Featured Work"
           title={
             <>
-              Projects built to feel <span className="serif-accent">modern, functional, and polished.</span>
+              Selected work from <span className="serif-accent">the frontier.</span>
             </>
           }
         />
@@ -262,7 +263,7 @@ function Projects() {
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((project, index) => (
             <Reveal key={project.title} delay={(index % 3) * 90} className={index === 0 ? "xl:col-span-2" : ""}>
-              <ProjectCard project={project} featured={index === 0} />
+              <ProjectCard project={project} featured={index === 0} index={index} />
             </Reveal>
           ))}
         </div>
