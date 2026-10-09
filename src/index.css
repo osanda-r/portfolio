@@ -493,6 +493,7 @@
   /* ---------- Hero: portrait & depth ---------- */
   .portrait-scene {
     perspective: 1400px;
+    transform: translateY(-2rem);
   }
 
   .portrait-enter {
@@ -934,6 +935,7 @@
 .portrait-scene::before { content: ""; position: absolute; z-index: -1; top: -5%; right: -8%; width: 110px; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 32% 25%, #e6fbff 0%, #68d4e9 12%, #226b9a 42%, #071528 73%); box-shadow: inset -16px -12px 24px #020713, 0 0 45px rgb(48 191 230 / .35); animation: float-y 9s ease-in-out infinite; }
 .portrait-scene::after { content: ""; position: absolute; z-index: -1; top: -5%; right: -13%; width: 145px; height: 90px; border: 1px solid rgb(167 234 255 / .55); border-radius: 50%; transform: rotate(-28deg); pointer-events: none; }
 @media (max-width: 639px) { .hero-coordinate { display: none; } .portrait-scene::before { right: 0; width: 75px; } .portrait-scene::after { right: -3%; width: 100px; height: 65px; } }
+@media (max-width: 1023px) { .portrait-scene { transform: translateY(-1rem); } }
 @media (prefers-reduced-motion: reduce) { .star-layer { will-change: auto; } }
 
 /* Scroll-linked orbital accents for the content chapters (progressive enhancement). */

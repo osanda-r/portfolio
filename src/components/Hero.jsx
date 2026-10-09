@@ -12,7 +12,9 @@ function Hero() {
       id="top"
       className="relative flex min-h-svh flex-col overflow-hidden px-5 pb-8 pt-28 md:px-8 md:pt-32"
     >
-      <div className="hero-coordinate" aria-hidden="true">EST. 2024 <span> / </span> EARTH · DIGITAL FRONTIER</div>
+      <div className="hero-coordinate" aria-hidden="true">
+        EST. 2024 <span> / </span> EARTH · DIGITAL FRONTIER
+      </div>
       <div aria-hidden="true" className="hero-floor">
         <div className="hero-floor-inner" />
       </div>
@@ -22,28 +24,32 @@ function Hero() {
           <Reveal>
             <p className="eyebrow">
               <span className="eyebrow-dot" aria-hidden="true" />
-              MISSION CONTROL  /  SOFTWARE & AI
+              Turning ideas into intelligent experiences
             </p>
           </Reveal>
 
           <h1 className="display-xl mt-8">
             <Reveal as="span" delay={80} className="block">
-              Engineering
+              Open to
             </Reveal>
             <Reveal as="span" delay={160} className="block">
-              <span className="serif-accent">the future.</span>
+              code
             </Reveal>
             <Reveal as="span" delay={240} className="block">
-              From Earth.
+              <span className="serif-accent">what's next.</span>
             </Reveal>
           </h1>
 
           <Reveal as="p" delay={320} className="lead mt-8 max-w-xl">
-            I build intelligent digital solutions at the intersection of software, AI, and cloud.
-            I turn real-world problems into scalable, reliable, and meaningful products.
+            I build intelligent digital solutions at the intersection of
+            software, AI, and cloud. I turn real-world problems into scalable,
+            reliable, and meaningful products.
           </Reveal>
 
-          <Reveal delay={400} className="mt-10 flex flex-wrap items-center gap-3">
+          <Reveal
+            delay={400}
+            className="mt-10 flex flex-wrap items-center gap-3"
+          >
             <Magnetic strength={0.22}>
               <a href="#projects" className="btn-primary">
                 Explore my work
@@ -55,7 +61,9 @@ function Hero() {
               <Download className="h-4 w-4" aria-hidden="true" />
             </a>
           </Reveal>
-          <Reveal delay={480} className="mt-10 max-w-xl"><MissionConsole /></Reveal>
+          <Reveal delay={480} className="mt-10 max-w-xl">
+            <MissionConsole />
+          </Reveal>
         </div>
 
         <PortraitStage />
