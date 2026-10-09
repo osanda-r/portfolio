@@ -1,14 +1,37 @@
+import { useRef } from "react";
 import { ArrowUpRight, Download } from "lucide-react";
 import Reveal from "./Reveal";
 import Magnetic from "./Magnetic";
 import PortraitStage from "./PortraitStage";
 import MissionConsole from "./MissionConsole";
+import { clamp01, useScrollEffect } from "../hooks/useScrollEffect";
+import { REDUCED_MOTION, useMediaQuery } from "../hooks/useMediaQuery";
 
 const RESUME_URL = `${import.meta.env.BASE_URL}resume.pdf`;
 
 function Hero() {
+  const sectionRef = useRef(null);
+  const cueRef = useRef(null);
+  const reducedMotion = useMediaQuery(REDUCED_MOTION);
+
+  // Expose how far the hero has scrolled away (0 → 1 over one viewport height)
+  // as a CSS variable so the copy, portrait, and cue can parallax and fade
+  // without a single React re-render.
+  useScrollEffect(
+    () => {
+      const section = sectionRef.current;
+      if (!section) return;
+      const progress = clamp01(window.scrollY / window.innerHeight);
+      section.style.setProperty("--hero-scroll", progress.toFixed(4));
+      // Keep the faded-out scroll cue from intercepting clicks.
+      if (cueRef.current) cueRef.current.classList.toggle("is-faded", progress > 0.25);
+    },
+    { disabled: reducedMotion },
+  );
+
   return (
     <section
+      ref={sectionRef}
       id="top"
       className="relative flex min-h-svh flex-col overflow-hidden px-5 pb-8 pt-28 md:px-8 md:pt-32"
     >
@@ -20,7 +43,7 @@ function Hero() {
       </div>
 
       <div className="relative mx-auto my-auto grid w-full max-w-7xl items-center gap-16 py-4 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
-        <div>
+        <div className="hero-copy">
           <Reveal>
             <p className="eyebrow">
               <span className="eyebrow-dot" aria-hidden="true" />
@@ -70,7 +93,7 @@ function Hero() {
       </div>
 
       <div className="relative mt-auto flex justify-center pt-6">
-        <a href="#skills" className="scroll-cue" aria-label="Scroll to skills">
+        <a ref={cueRef} href="#skills" className="scroll-cue" aria-label="Scroll to skills">
           Scroll
         </a>
       </div>

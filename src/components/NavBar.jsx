@@ -14,18 +14,27 @@ const LINKS = [
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [active, setActive] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const indicatorRef = useRef(null);
   const linkRefs = useRef({});
+  const lastY = useRef(0);
 
   // Track scroll position and which section currently sits near the top of the viewport.
   useEffect(() => {
     let frame = 0;
+    lastY.current = window.scrollY;
 
     const update = () => {
       frame = 0;
-      setScrolled(window.scrollY > 24);
+      const y = window.scrollY;
+      setScrolled(y > 24);
+
+      // Slide the bar away while scrolling down; bring it back on scroll up or near the top.
+      if (y <= 320 || y < lastY.current - 1) setHidden(false);
+      else if (y > lastY.current + 1) setHidden(true);
+      lastY.current = y;
 
       const marker = window.innerHeight * 0.4;
       let current = "";
@@ -95,7 +104,13 @@ function Navbar() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 px-5 pt-3 md:px-8 md:pt-5">
+      <header
+        className={`fixed inset-x-0 top-0 z-50 px-5 pt-3 transition-[translate,opacity] duration-500 ease-[var(--ease-premium)] md:px-8 md:pt-5 ${
+          hidden && !menuOpen
+            ? "pointer-events-none -translate-y-full opacity-0"
+            : "translate-y-0 opacity-100"
+        }`}
+      >
         <div
           aria-hidden="true"
           className={`pointer-events-none absolute inset-x-0 top-0 h-32 bg-linear-to-b from-ink-950 via-ink-950/70 to-transparent transition-opacity duration-500 ${

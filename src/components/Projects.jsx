@@ -158,7 +158,7 @@ function ProjectCover({ project, featured = false }) {
       alt={project.title}
       loading="lazy"
       decoding="async"
-      className={`absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-premium group-hover:scale-[1.06] ${
+      className={`project-cover-img absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-premium group-hover:scale-[1.06] ${
         featured ? "object-[20%_center]" : ""
       }`}
     />

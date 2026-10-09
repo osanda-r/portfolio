@@ -1,9 +1,12 @@
 // src/components/Contact.jsx
+import { useRef } from "react";
 import { Mail } from "lucide-react";
 import { FaFacebookF, FaGithub, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import Magnetic from "./Magnetic";
 import Reveal from "./Reveal";
 import SectionHeader from "./SectionHeader";
+import { clamp01, useScrollEffect } from "../hooks/useScrollEffect";
+import { REDUCED_MOTION, useMediaQuery } from "../hooks/useMediaQuery";
 
 const EMAIL = "osandarashmitha8@gmail.com";
 
@@ -40,8 +43,26 @@ function SocialLink({ label, href, Icon }) {
 }
 
 function Contact() {
+  const sectionRef = useRef(null);
+  const reducedMotion = useMediaQuery(REDUCED_MOTION);
+
+  // Expose the section's journey through the viewport (0 → 1) so the two
+  // orbs can drift past the panel at different rates.
+  useScrollEffect(
+    () => {
+      const section = sectionRef.current;
+      if (!section) return;
+      const rect = section.getBoundingClientRect();
+      const progress = clamp01(
+        (window.innerHeight - rect.top) / (window.innerHeight + rect.height),
+      );
+      section.style.setProperty("--contact-scroll", progress.toFixed(4));
+    },
+    { disabled: reducedMotion },
+  );
+
   return (
-    <section id="contact" className="relative px-5 py-24 md:px-8 md:py-28">
+    <section ref={sectionRef} id="contact" className="relative px-5 py-24 md:px-8 md:py-28">
       <Reveal className="cta-panel relative mx-auto max-w-5xl overflow-hidden rounded-[2.25rem] border border-white/[0.09] px-6 py-16 text-center md:px-16 md:py-24">
         <div aria-hidden="true" className="cta-orb cta-orb-a" />
         <div aria-hidden="true" className="cta-orb cta-orb-b" />
