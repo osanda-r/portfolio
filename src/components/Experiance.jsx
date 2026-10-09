@@ -1,8 +1,11 @@
+import { useRef } from "react";
 import { Building2, Check, MapPin } from "lucide-react";
 import Reveal from "./Reveal";
 import SectionHeader from "./SectionHeader";
 import TiltCard from "./TiltCard";
 import { useInView } from "../hooks/useInView";
+import { clamp01, useScrollEffect } from "../hooks/useScrollEffect";
+import { REDUCED_MOTION, useMediaQuery } from "../hooks/useMediaQuery";
 
 const experienceItems = [
   {
@@ -22,6 +25,23 @@ const experienceItems = [
 
 function Experience() {
   const [railRef, railVisible] = useInView({ threshold: 0.1 });
+  const railSpanRef = useRef(null);
+  const reducedMotion = useMediaQuery(REDUCED_MOTION);
+
+  // Scroll-linked rail: the timeline line fills as it travels through the
+  // viewport (and drains again when you scroll back up). With reduced motion
+  // the hook stays off and the is-visible fallback simply shows the rail.
+  useScrollEffect(
+    () => {
+      const rail = railSpanRef.current;
+      if (!rail) return;
+      const rect = rail.getBoundingClientRect();
+      const line = window.innerHeight * 0.72;
+      const progress = rect.height > 0 ? clamp01((line - rect.top) / rect.height) : 1;
+      rail.style.setProperty("--rail-progress", progress.toFixed(4));
+    },
+    { disabled: reducedMotion },
+  );
 
   return (
     <section id="experience" className="relative px-5 py-24 md:px-8 md:py-28">
@@ -40,7 +60,11 @@ function Experience() {
         </div>
 
         <div ref={railRef} className="relative">
-          <span aria-hidden="true" className={`timeline-rail ${railVisible ? "is-visible" : ""}`} />
+          <span
+            ref={railSpanRef}
+            aria-hidden="true"
+            className={`timeline-rail ${railVisible ? "is-visible" : ""}`}
+          />
 
           <ol className="space-y-6">
             {experienceItems.map((item, index) => (
