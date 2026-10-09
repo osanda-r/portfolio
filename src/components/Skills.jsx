@@ -32,7 +32,7 @@ function Skills() {
           eyebrow="Skills & Tools"
           title={
             <>
-              Practical skills I use to build <span className="serif-accent">modern apps.</span>
+              The tools behind <span className="serif-accent">every mission.</span>
             </>
           }
           lead="A concise overview of my core technologies, tools, and the workflows I apply when building products and prototypes."
@@ -41,7 +41,8 @@ function Skills() {
         <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-6">
           {skillGroups.map((group, index) => (
             <Reveal key={group.title} delay={index * 90} className={SPANS[index]}>
-              <TiltCard max={5} className="glass flex h-full flex-col rounded-[1.75rem] p-6 md:p-7">
+              <TiltCard max={5} className="glass sector-card flex h-full flex-col rounded-[1.75rem] p-6 md:p-7">
+                <div className="sector-card-label" aria-hidden="true">SYSTEM / {String(index + 1).padStart(2, "0")}</div>
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <h3 className="display-md">{group.title}</h3>

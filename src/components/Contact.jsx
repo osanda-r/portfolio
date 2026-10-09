@@ -47,16 +47,17 @@ function Contact() {
         <div aria-hidden="true" className="cta-orb cta-orb-b" />
 
         <div className="relative">
+          <p className="contact-signal">TRANSMISSION OPEN <span aria-hidden="true">✦</span> COLOMBO, SRI LANKA</p>
           <SectionHeader
             align="center"
             index="04"
             eyebrow="Contact"
             title={
               <>
-                Get in <span className="serif-accent">Touch</span>
+                Let’s build <span className="serif-accent">what’s next.</span>
               </>
             }
-            lead="Feel free to reach out via email or connect with me on social media — I usually reply within a couple of days."
+            lead="Have an idea worth exploring? Send a signal. I’m always open to thoughtful collaborations and ambitious projects."
           />
 
           <div className="mt-10 flex flex-col items-center gap-5">

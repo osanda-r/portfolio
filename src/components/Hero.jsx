@@ -2,6 +2,7 @@ import { ArrowUpRight, Download } from "lucide-react";
 import Reveal from "./Reveal";
 import Magnetic from "./Magnetic";
 import PortraitStage from "./PortraitStage";
+import MissionConsole from "./MissionConsole";
 
 const RESUME_URL = `${import.meta.env.BASE_URL}resume.pdf`;
 
@@ -11,6 +12,7 @@ function Hero() {
       id="top"
       className="relative flex min-h-svh flex-col overflow-hidden px-5 pb-8 pt-28 md:px-8 md:pt-32"
     >
+      <div className="hero-coordinate" aria-hidden="true">EST. 2024 <span> / </span> EARTH · DIGITAL FRONTIER</div>
       <div aria-hidden="true" className="hero-floor">
         <div className="hero-floor-inner" />
       </div>
@@ -20,19 +22,19 @@ function Hero() {
           <Reveal>
             <p className="eyebrow">
               <span className="eyebrow-dot" aria-hidden="true" />
-              Turning ideas into intelligent experiences.
+              MISSION CONTROL  /  SOFTWARE & AI
             </p>
           </Reveal>
 
           <h1 className="display-xl mt-8">
             <Reveal as="span" delay={80} className="block">
-              Open to
+              Engineering
             </Reveal>
             <Reveal as="span" delay={160} className="block">
-              <span className="serif-accent">code</span>
+              <span className="serif-accent">the future.</span>
             </Reveal>
             <Reveal as="span" delay={240} className="block">
-              what&apos;s next.
+              From Earth.
             </Reveal>
           </h1>
 
@@ -53,6 +55,7 @@ function Hero() {
               <Download className="h-4 w-4" aria-hidden="true" />
             </a>
           </Reveal>
+          <Reveal delay={480} className="mt-10 max-w-xl"><MissionConsole /></Reveal>
         </div>
 
         <PortraitStage />

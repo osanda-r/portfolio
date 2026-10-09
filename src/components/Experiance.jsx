@@ -32,7 +32,7 @@ function Experience() {
             eyebrow="Work Experience"
             title={
               <>
-                Practical experience from <span className="serif-accent">real software work.</span>
+                Experience in <span className="serif-accent">the field.</span>
               </>
             }
             lead="A concise overview of my internship experience and the skills I strengthened while working on real projects."
@@ -47,7 +47,8 @@ function Experience() {
               <li key={`${item.company}-${item.role}`} className="relative pl-9 md:pl-12">
                 <span aria-hidden="true" className="timeline-node" />
                 <Reveal delay={index * 120}>
-                  <TiltCard max={4} className="glass rounded-[1.75rem] p-6 md:p-9">
+                  <TiltCard max={4} className="glass mission-card rounded-[1.75rem] p-6 md:p-9">
+                    <div className="mission-card-label" aria-hidden="true">MISSION LOG / {String(index + 1).padStart(2, "0")}</div>
                     <div className="flex flex-wrap items-center gap-3">
                       <span className="pill">{item.period}</span>
                       <span className="inline-flex items-center gap-1.5 text-sm text-fg-3">
