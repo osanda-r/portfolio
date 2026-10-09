@@ -1016,42 +1016,9 @@
 @media (max-width: 639px) { .mission-console { font-size: .62rem; } .console-header, .console-footer { font-size: .58rem; } }
 
 /* ==========================================================================
-   Scroll effects: parallax drift and scroll-linked fills.
-   JavaScript exposes scroll progress as CSS custom properties (--hero-scroll,
-   --rail-progress, --contact-scroll); the motion itself lives here so it is
-   fully dropped under prefers-reduced-motion. Unlayered on purpose: these
-   rules refine the component layer above.
+   Scroll effects: scroll-linked fills for content chapters.
    ========================================================================== */
 @media (prefers-reduced-motion: no-preference) {
-  /* Hero: the copy rises and fades out, the portrait lags behind (depth),
-     the vertical coordinate line drifts faster, and the scroll cue bows out
-     first so it never floats over the next section. */
-  .hero-copy {
-    translate: 0 calc(var(--hero-scroll, 0) * -56px);
-    opacity: clamp(0, calc(1 - var(--hero-scroll, 0) * 1.6), 1);
-    will-change: translate, opacity;
-  }
-
-  .portrait-scene {
-    translate: 0 calc(var(--hero-scroll, 0) * 72px);
-    will-change: translate;
-  }
-
-  .hero-coordinate {
-    translate: 0 calc(var(--hero-scroll, 0) * -120px);
-    opacity: clamp(0, calc(1 - var(--hero-scroll, 0) * 2.2), 1);
-  }
-
-  .scroll-cue {
-    opacity: clamp(0, calc(1 - var(--hero-scroll, 0) * 4), 1);
-  }
-
-  /* Once faded out, the cue stops intercepting clicks (toggled from Hero.jsx). */
-  .scroll-cue.is-faded {
-    visibility: hidden;
-    pointer-events: none;
-  }
-
   /* Experience: the timeline rail draws itself in sync with the scroll
      position instead of playing a one-shot entrance. */
   .timeline-rail {
