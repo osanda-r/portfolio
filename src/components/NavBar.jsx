@@ -6,10 +6,10 @@ import signature from "../images/signature4.png";
 const RESUME_URL = `${import.meta.env.BASE_URL}resume.pdf`;
 
 const LINKS = [
-  { id: "skills", label: "Systems" },
-  { id: "experience", label: "Flight Log" },
-  { id: "projects", label: "Missions" },
-  { id: "contact", label: "Comms" },
+  { id: "skills", label: "Skills" },
+  { id: "experience", label: "Experience" },
+  { id: "projects", label: "Projects" },
+  { id: "contact", label: "Contact" },
 ];
 
 function Navbar() {
