@@ -4,8 +4,6 @@ import pro1 from "../images/pro1.png";
 import pro2 from "../images/pro2.png";
 import pro3 from "../images/pro3.png";
 import pro4 from "../images/pro4.png";
-import pro5 from "../images/pro5.png";
-import pro6 from "../images/pro6.png";
 import pro7 from "../images/pro7.png";
 import pro8 from "../images/pro8.png";
 import pro9 from "../images/pro9.jpeg";
