@@ -86,20 +86,8 @@ const projects = [
     url: "https://github.com/osanda-r/Student-management-system/tree/main/Student%20Management",
     tag: "Admin",
   },
-  {
-    title: "Weather App",
-    description: "A web app for checking live weather information quickly.",
-    image: pro5,
-    url: "https://github.com/osanda-r/Weather-App",
-    tag: "Utility",
-  },
-  {
-    title: "Calculator",
-    description: "A simple web calculator with a clean interface.",
-    image: pro6,
-    url: "https://github.com/osanda-r/Calculator",
-    tag: "Utility",
-  },
+ 
+  
   {
     title: "Fitness Forge",
     description: "UI/UX design concept for a fitness website experience.",
