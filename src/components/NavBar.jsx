@@ -8,6 +8,7 @@ const RESUME_URL = `${import.meta.env.BASE_URL}resume.pdf`;
 const LINKS = [
   { id: "skills", label: "Skills" },
   { id: "experience", label: "Experience" },
+  { id: "certifications", label: "Certifications" },
   { id: "projects", label: "Projects" },
   { id: "contact", label: "Contact" },
 ];

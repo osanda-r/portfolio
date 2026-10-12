@@ -71,7 +71,7 @@ function Contact() {
           <p className="contact-signal">TRANSMISSION OPEN <span aria-hidden="true">✦</span> COLOMBO, SRI LANKA</p>
           <SectionHeader
             align="center"
-            index="04"
+            index="05"
             eyebrow="Contact"
             title={
               <>

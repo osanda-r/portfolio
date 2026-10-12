@@ -974,8 +974,8 @@
   .rocket-trail { position: absolute; top: 10px; left: 10px; width: calc(7px - var(--trail-index) * .7px); height: calc(7px - var(--trail-index) * .7px); border-radius: 50%; background: #30bfe6; box-shadow: 0 0 12px #30bfe6; opacity: 0; transition: opacity .2s; }
   .rocket-trail:nth-child(even) { background: #ffb87a; box-shadow: 0 0 10px #ffb87a; }
 }
-/* Mission-control framing shared by the four content chapters. */
-#skills, #experience, #projects, #contact { border-top: 1px solid rgb(167 234 255 / .06); }
+/* Mission-control framing shared by the content chapters. */
+#skills, #experience, #certifications, #projects, #contact { border-top: 1px solid rgb(167 234 255 / .06); }
 .sector-card, .mission-card, .project-mission, .mission-stat { background-image: linear-gradient(145deg, rgb(48 191 230 / .075), transparent 48%); }
 .sector-card { overflow: hidden; }
 .sector-card::after, .mission-card::after { content: ""; position: absolute; top: 0; left: 20%; right: 20%; height: 1px; background: linear-gradient(90deg, transparent, rgb(167 234 255 / .6), transparent); opacity: .5; }

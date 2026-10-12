@@ -224,7 +224,7 @@ function Projects() {
     <section id="projects" className="relative px-5 py-24 md:px-8 md:py-28">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
-          index="03"
+          index="04"
           eyebrow="Featured Work"
           title={
             <>
