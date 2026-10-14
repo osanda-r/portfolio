@@ -7,6 +7,8 @@ import pro4 from "../images/pro4.png";
 import pro7 from "../images/pro7.png";
 import pro8 from "../images/pro8.png";
 import pro9 from "../images/pro9.jpeg";
+// import pro10 from "../images/pro10.png";
+import pro11 from "../images/pro11.png";
 import githubCover from "../images/github_pro.png";
 import Reveal from "./Reveal";
 import SectionHeader from "./SectionHeader";
@@ -16,6 +18,14 @@ import { useInView } from "../hooks/useInView";
 import { REDUCED_MOTION, useMediaQuery } from "../hooks/useMediaQuery";
 
 const projects = [
+  {
+    title: "EcoTrack - Smart Waste Collection & Reporting System",
+    description:
+      "web-based waste management system connecting citizens, municipal administrators, and collection workers. Implemented garbage reporting with photos and map locations, complaint tracking, collection scheduling, task assignment, notifications, and analytics.",
+    image: pro11,
+    url: "https://ecotrackpluse.netlify.app/",
+    tag: "Full Stack",
+  },
   {
     title: "GovFactory",
     description:
@@ -58,21 +68,24 @@ const projects = [
   },
   {
     title: "EduCheck",
-    description: "A mobile app for tracking attendance and managing student records.",
+    description:
+      "A mobile app for tracking attendance and managing student records.",
     image: pro1,
     url: "https://drive.google.com/drive/folders/1AO8XJ7CL6xa9YKgHBEK22ZbIGk8AFT3_?usp=sharing",
     tag: "Mobile",
   },
   {
     title: "Recipe Finder",
-    description: "A web app for discovering recipes with a clean browsing flow.",
+    description:
+      "A web app for discovering recipes with a clean browsing flow.",
     image: pro2,
     url: "https://github.com/osanda-r/Recipe-Finder",
     tag: "Web App",
   },
   {
     title: "Hotel Management System",
-    description: "A management system for handling hotel operations and bookings.",
+    description:
+      "A management system for handling hotel operations and bookings.",
     image: pro3,
     url: "https://github.com/osanda-r/Hotel-Booking-System",
     tag: "Business",
@@ -84,8 +97,7 @@ const projects = [
     url: "https://github.com/osanda-r/Student-management-system/tree/main/Student%20Management",
     tag: "Admin",
   },
- 
-  
+
   {
     title: "Fitness Forge",
     description: "UI/UX design concept for a fitness website experience.",
@@ -103,8 +115,8 @@ const projects = [
 ];
 
 const stats = [
-  { value: 13, suffix: "+", label: "Projects" },
-  { value: 4, suffix: "+", label: "Categories" },
+  { value: 15, suffix: "+", label: "Projects" },
+  { value: 7, suffix: "+", label: "Categories" },
   { value: 100, suffix: "%", label: "Real-world" },
   { value: 100, suffix: "%", label: "Hands-on" },
 ];
@@ -176,7 +188,7 @@ function ProjectCard({ project, featured, index }) {
       <div className="flex flex-1 flex-col p-6 md:p-7">
         <div className="flex flex-wrap items-center gap-2">
           <span className="pill">{project.tag}</span>
-          <span className="pill pill-muted">{project.url ? "Open source" : "Concept"}</span>
+         
         </div>
 
         <h3 className="display-md mt-5">
