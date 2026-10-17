@@ -29,12 +29,12 @@ const projects = [
     tag: "Full Stack",
   },
   {
-    title: "EcoTrack - ",
+    title: "DocuMind AI - an AI Research & Document Assistant",
     description:
-      "web-based waste management system connecting citizens, municipal administrators, and collection workers. Implemented garbage reporting with photos and map locations, complaint tracking, collection scheduling, task assignment, notifications, and analytics.",
-    image: pro11,
-    url: "https://ecotrackpluse.netlify.app/",
-    tag: "Full Stack",
+      " PDF text extraction using PyMuPDF, Text chunking and why it is important in RAG, Text embeddings using Sentence Transformers, Semantic search and cosine similarity, Retrieving relevant document sections, Generating context-based answers using an LLM and the Groq API",
+    image: pro12,
+    url: "https://github.com/osanda-r/documind-ai",
+    tag: "AI - Full Stack",
   },
   {
     title: "GovFactory",
