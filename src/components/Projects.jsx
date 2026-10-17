@@ -7,8 +7,10 @@ import pro4 from "../images/pro4.png";
 import pro7 from "../images/pro7.png";
 import pro8 from "../images/pro8.png";
 import pro9 from "../images/pro9.jpeg";
+
 // import pro10 from "../images/pro10.png";
 import pro11 from "../images/pro11.png";
+import pro12 from "../images/pro12.png";
 import githubCover from "../images/github_pro.png";
 import Reveal from "./Reveal";
 import SectionHeader from "./SectionHeader";
@@ -20,6 +22,14 @@ import { REDUCED_MOTION, useMediaQuery } from "../hooks/useMediaQuery";
 const projects = [
   {
     title: "EcoTrack - Smart Waste Collection & Reporting System",
+    description:
+      "web-based waste management system connecting citizens, municipal administrators, and collection workers. Implemented garbage reporting with photos and map locations, complaint tracking, collection scheduling, task assignment, notifications, and analytics.",
+    image: pro11,
+    url: "https://ecotrackpluse.netlify.app/",
+    tag: "Full Stack",
+  },
+  {
+    title: "EcoTrack - ",
     description:
       "web-based waste management system connecting citizens, municipal administrators, and collection workers. Implemented garbage reporting with photos and map locations, complaint tracking, collection scheduling, task assignment, notifications, and analytics.",
     image: pro11,
