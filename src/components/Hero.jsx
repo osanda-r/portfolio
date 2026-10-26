@@ -21,12 +21,17 @@ function Hero() {
 
       <div className="relative mx-auto my-auto grid w-full max-w-7xl items-center gap-16 py-4 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
         <div className="hero-copy">
-          {/* <Reveal>
+           <Reveal>
             <p className="eyebrow">
-              <span className="eyebrow-dot" aria-hidden="true" />
-              Turning ideas into intelligent experiences
-            </p>
-          </Reveal> */}
+               <span className="eyebrow-prefix" aria-hidden="true">
+                 &gt;
+               </span>
+               <span className="eyebrow-text">
+                 Turning ideas into intelligent experiences
+               </span>
+               <span className="eyebrow-caret" aria-hidden="true" />
+             </p>
+           </Reveal>
 
           <h1 className="display-xl mt-8">
             <Reveal as="span" delay={80} className="block">
