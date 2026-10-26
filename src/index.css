@@ -678,17 +678,6 @@
     animation: aurora-b 30s ease-in-out infinite alternate;
   }
 
-  .grid-overlay {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(to right, rgb(255 255 255 / 0.035) 1px, transparent 1px),
-      linear-gradient(to bottom, rgb(255 255 255 / 0.035) 1px, transparent 1px);
-    background-size: 96px 96px;
-    mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 20%, transparent 80%);
-    -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 20%, transparent 80%);
-  }
-
   .grain {
     position: absolute;
     inset: 0;

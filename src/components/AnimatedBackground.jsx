@@ -1,6 +1,6 @@
 import SpaceAtmosphere from "./SpaceAtmosphere";
 
-/** Fixed, decorative backdrop: drifting aurora glows, a faint grid, grain, and vignette. */
+/** Fixed, decorative backdrop: drifting aurora glows, grain, and vignette. */
 function AnimatedBackground() {
   return (
     <div
@@ -10,7 +10,6 @@ function AnimatedBackground() {
       <div className="aurora aurora-violet" />
       <div className="aurora aurora-gold" />
       <SpaceAtmosphere />
-      <div className="grid-overlay" />
       <div className="grain" />
       <div className="vignette" />
     </div>
